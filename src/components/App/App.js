@@ -11,37 +11,36 @@ import MainPage from "../../pages/MainPage";
 import SearchPage from "../../pages/SearchPage";
 
 const navLinks = [
-  { title: 'MainPage', to: '/', component: <MainPage /> },
+  { title: 'MyReads', to: '/', component: <MainPage /> },
   { title: 'Search', to: '/search', component: <SearchPage /> }
 ]
 const Navigation = () => (
   <nav>
-    <ul>
-      {
-        navLinks.map(r =>
-          <li key={r.to}>
-            <Link to={r.to}>{r.title}</Link>
-          </li>
-        )
-      }
-    </ul>
+    {
+      navLinks.map(r =>
+        <Link key={r.to} to={r.to}>{r.title}</Link>
+      )
+    }
   </nav>
 )
 const App = () => {
   return (
     <Router>
-      <div>
-        <Navigation />
-
-        <Switch>
-          <Route path="/search">
-            <SearchPage />
-          </Route>
-          <Route exact path="/">
-            <MainPage />
-          </Route>
-        </Switch>
-      </div>
+      <>
+        <header>
+          <Navigation />
+        </header>
+        <main>
+          <Switch>
+            <Route path="/search">
+              <SearchPage />
+            </Route>
+            <Route exact path="/">
+              <MainPage />
+            </Route>
+          </Switch>
+        </main>
+      </>
     </Router>
   );
 }
