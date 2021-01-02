@@ -1,0 +1,24 @@
+.floatingButton {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    bottom: -10px;
+    right: 10px;
+    background-color: #0C9;
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    font-size: 2rem;
+    text-decoration: none;
+    user-select: none;
+}
+
+.arrowIcon {
+    width: auto;
+    height: 24px;
+}
