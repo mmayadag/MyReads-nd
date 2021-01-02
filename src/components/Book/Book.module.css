@@ -1,0 +1,50 @@
+.article {
+    display: inline-block;
+    width: 170px;
+    padding-top: 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+    background: white;
+    box-shadow: 0 0 4px 0 rgba(17, 22, 26, .16),
+        0 2px 4px 0 rgba(17, 22, 26, .08),
+        0 4px 8px 0 rgba(17, 22, 26, .08);
+}
+
+.article:last-child {
+    margin-right: 0;
+}
+
+.title,
+.authors {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.title {
+    padding-bottom: 0;
+    margin-bottom: 2px;
+    padding: 5px;
+}
+
+.article:hover .title {
+    white-space: break-spaces;
+}
+
+.authors {
+    margin-top: 0;
+    color: darkgrey;
+    height: 17px;
+}
+
+.article:hover .authors {
+    height: auto;
+    position: absolute;
+    overflow: inherit;
+    padding: 10px;
+    width: 170px;
+    box-sizing: border-box;
+}
