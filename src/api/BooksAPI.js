@@ -46,3 +46,15 @@ export const search = (query) =>
         body: JSON.stringify({ query })
     }).then(res => res.json())
         .then(data => data.books)
+
+// Get my Books indexes
+export const getIndexesAll = async () => {
+    let indexes = {}
+    try {
+        let books = await getAll();
+        books.forEach(b => { indexes[b.id] = b.shelf; })
+    } catch (e) {
+
+    }
+    return indexes;
+}
