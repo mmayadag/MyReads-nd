@@ -4,6 +4,9 @@
     padding-top: 10px;
     border-radius: 4px;
     margin-right: 10px;
+    margin-bottom: 20px;
+    min-height: 280px;
+    vertical-align: top;
     background: white;
     box-shadow: 0 0 4px 0 rgba(17, 22, 26, .16),
         0 2px 4px 0 rgba(17, 22, 26, .08),
@@ -16,7 +19,7 @@
 
 .title,
 .authors {
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: bold;
@@ -30,21 +33,8 @@
     padding: 5px;
 }
 
-.article:hover .title {
-    white-space: break-spaces;
-}
-
 .authors {
     margin-top: 0;
     color: darkgrey;
-    height: 17px;
-}
-
-.article:hover .authors {
-    height: auto;
-    position: absolute;
-    overflow: inherit;
-    padding: 10px;
-    width: 170px;
-    box-sizing: border-box;
+    padding-bottom: 10px;
 }
