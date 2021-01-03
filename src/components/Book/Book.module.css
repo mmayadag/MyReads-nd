@@ -3,7 +3,7 @@
     width: 170px;
     padding-top: 10px;
     border-radius: 4px;
-    margin-right: 10px;
+    margin-right: 16px;
     margin-bottom: 20px;
     min-height: 280px;
     vertical-align: top;
@@ -23,18 +23,20 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: bold;
-    font-size: 0.9rem;
     text-align: center;
 }
 
 .title {
     padding-bottom: 0;
+    margin-top: 0.7rem;
     margin-bottom: 2px;
     padding: 5px;
+    font-size: 0.9rem;
 }
 
 .authors {
     margin-top: 0;
     color: darkgrey;
     padding-bottom: 10px;
+    font-size: 0.8rem;
 }
