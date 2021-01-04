@@ -1,5 +1,8 @@
 # MyReads is A Book Lending App.
 This is a react project. MyReads is book lending app.
+
+Install `node v12.16.3` & `yarn` need to run project without errors. 
+
 ## Available Scripts
 In the project directory, you can run:
 ### `yarn`
@@ -27,3 +30,11 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Author
+
+Murat Mayadağ - [GitHub](https://github.com/mmayadag) - [LinkedIn](https://www.linkedin.com/in/murat-mayadag/)
+
+## License
+
+This project is licensed under the MIT License.
