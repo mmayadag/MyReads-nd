@@ -1,53 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { search, getIndexesAll } from '../api/BooksAPI';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import BookShelf from '../components/BookShelf/BookShelf';
 
-const SearchPage = () => {
-  const [value, setValue] = useState('');
-  const [books, setBooks] = useState([]);
-  const [isloading, setLoading] = useState(null);
-  const [myBooks, setMybooks] = useState(null);
-
+const SearchPage = ({
+  books, isLoading, onSelectAction,
+  error,
+  clearSearch,
+}) => {
   useEffect(() => {
-    const fetchIndexes = async () => {
-      const data = await getIndexesAll();
-      setMybooks(data);
-    };
-    fetchIndexes();
+    clearSearch();
   }, []);
 
-  const searchBooksData = async () => {
-    if (value.length > 0) {
-      setLoading(true);
-      let data = await search(value);
-
-      // TODO: dropdown action
-      if (myBooks) {
-        data = data.map((b) => {
-          let extra = {};
-          if (myBooks && myBooks[b.id] !== undefined) {
-            extra = { shelf: myBooks[b.id] };
-          }
-          return { ...b, ...extra };
-        });
-      }
-      setBooks(data);
-      setLoading(false);
-    }
-  };
-  const searchHandler = () => {
-    searchBooksData();
-  };
   return (
     <>
       <h2>Search Page</h2>
-      <input value={value} onChange={(e) => setValue(e.target.value)} />
-      <button onClick={searchHandler} type="button">Search</button>
       <br />
-      {!isloading
-        && <BookShelf books={books} title="results" />}
+      {!isLoading && (
+        <h3 style={{ padding: '0 1rem' }}>
+          {error || `${books.length} result show`}
+        </h3>
+      )}
+      {(!isLoading && books.length > 0)
+        && <BookShelf books={books} title="results" onSelectAction={onSelectAction} />}
     </>
   );
 };
 
 export default SearchPage;
+
+SearchPage.propTypes = {
+  isLoading: PropTypes.bool,
+  books: PropTypes.instanceOf(Array),
+  onSelectAction: PropTypes.instanceOf(Function),
+  clearSearch: PropTypes.instanceOf(Function),
+  error: PropTypes.string,
+};
+
+SearchPage.defaultProps = {
+  isLoading: null,
+  books: [],
+  onSelectAction: () => { },
+  clearSearch: () => { },
+  error: null,
+};

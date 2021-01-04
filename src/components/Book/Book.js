@@ -24,7 +24,7 @@ const bookStyles = {
   },
 };
 // eslint-disable-next-line react/prop-types
-const Book = ({ item }) => {
+const Book = ({ item, onSelectAction }) => {
   const { title, authors, imageLinks } = item;
   return (
     <article className={styles.article}>
@@ -34,7 +34,7 @@ const Book = ({ item }) => {
           ...bookStyles.thumbnail,
         }}
         >
-          <SelectShelf book={item} />
+          <SelectShelf book={item} onSelectAction={onSelectAction} />
         </div>
         <p className={styles.title}>{title}</p>
         <BookAuthors authors={authors} />
@@ -59,6 +59,7 @@ Book.propTypes = {
       thumbnail: PropTypes.string,
     }),
   }),
+  onSelectAction: PropTypes.instanceOf(Function).isRequired,
 };
 
 Book.defaultProps = {

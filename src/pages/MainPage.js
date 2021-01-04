@@ -1,28 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { getAll } from '../api/BooksAPI';
-
-import BookShelfs from '../components/BookShelf/BookShelfs';
+import React from 'react';
+import PropTypes from 'prop-types';
+import BookShelves from '../components/BookShelf/BookShelves';
 import AddButton from '../components/AddButton/AddButton';
 
-const MainPage = () => {
-  const [books, setBooks] = useState([]);
-  const [isloading, setLoading] = useState(null);
-  const fetchBooksData = async () => {
-    setLoading(true);
-    const data = await getAll();
-    setBooks(data);
-    setLoading(false);
-  };
-  useEffect(() => {
-    fetchBooksData();
-  }, []);
-
-  return (
-    <>
-      <BookShelfs books={books} isLoading={isloading} />
-      <AddButton />
-    </>
-  );
-};
+const MainPage = ({ books, isLoading, onSelectAction }) => (
+  <>
+    <BookShelves books={books} isLoading={isLoading} onSelectAction={onSelectAction} />
+    <AddButton />
+  </>
+);
 
 export default MainPage;
+
+MainPage.propTypes = {
+  isLoading: PropTypes.bool,
+  books: PropTypes.instanceOf(Array),
+  onSelectAction: PropTypes.instanceOf(Function),
+};
+
+MainPage.defaultProps = {
+  isLoading: null,
+  books: [],
+  onSelectAction: () => { },
+};

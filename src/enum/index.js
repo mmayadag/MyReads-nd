@@ -1,7 +1,7 @@
 const SHELF_STATUS = {
-  read: 'Read',
-  wantToRead: 'Want To Read',
   currentlyReading: 'Currently Reading',
+  wantToRead: 'Want To Read',
+  read: 'Read',
 };
 
 export default SHELF_STATUS;

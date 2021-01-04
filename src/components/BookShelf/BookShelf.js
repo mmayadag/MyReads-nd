@@ -1,31 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Book from '../Book/Book';
 import styles from './BookShelf.module.css'; // Import css modules stylesheet as styles
+import Loading from '../Loading/Loading';
+import BookList from './BookList';
 
-const BookShelf = ({ books, title }) => (
-  <>
-    { books.length > 0
-      ? (
-        <section className={styles.section}>
-          <h2 className={styles.title}>{title}</h2>
-          <div className={styles.booklist}>
-            {books.map((item) => <Book item={item} key={item.id} />)}
-          </div>
-        </section>
-      )
-      : <h1>Empty</h1>}
-  </>
+const BookShelf = ({
+  books, title, isLoading, onSelectAction,
+}) => (
+  <section className={styles.section}>
+    <h2 className={styles.title}>{title}</h2>
+    <div className={styles.booklist}>
+      {isLoading === true ? <Loading />
+        : <BookList books={books} onSelectAction={onSelectAction} />}
+    </div>
+  </section>
 );
 
 BookShelf.propTypes = {
   title: PropTypes.string.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  books: PropTypes.array,
+  isLoading: PropTypes.bool,
+  books: PropTypes.instanceOf(Array),
+  onSelectAction: PropTypes.instanceOf(Function).isRequired,
 };
 
 BookShelf.defaultProps = {
   books: [],
+  isLoading: null,
 };
 
 export default BookShelf;

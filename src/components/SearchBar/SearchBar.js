@@ -18,6 +18,7 @@ const SearchBar = ({ searchBooksData }) => (
         onChange={(e) => {
           searchBooksData(e.target.value);
         }}
+        placeholder="Search by title or author"
       />
     </div>
   </>
