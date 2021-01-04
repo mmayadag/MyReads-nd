@@ -61,6 +61,13 @@ const App = () => {
     await fetchBooksData(false);
   };
 
+  const clearSearch = () => {
+    if (error || searchBooks.length > 0) {
+      setError('');
+      setSearchBooks([]);
+    }
+  };
+
   const searchBooksData = async (value) => {
     if (value.length > 0) {
       setLoading(true);
@@ -84,13 +91,8 @@ const App = () => {
       }
       setLoading(false);
       // {"books":{"error":"empty query","items":[]}}
-    }
-  };
-
-  const clearSearch = () => {
-    if (error || searchBooks.length > 0) {
-      setError('');
-      setSearchBooks([]);
+    } else {
+      clearSearch();
     }
   };
 

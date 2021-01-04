@@ -13,7 +13,6 @@ const SearchBar = ({ searchBooksData }) => (
       </Link>
       <DebounceInput
         className={styles.searchInput}
-        minLength={2}
         debounceTimeout={600}
         onChange={(e) => {
           searchBooksData(e.target.value);
