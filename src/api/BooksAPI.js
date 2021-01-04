@@ -40,15 +40,3 @@ export const search = (query) => fetch(`${api}/search`, {
   body: JSON.stringify({ query }),
 }).then((res) => res.json())
   .then((data) => data.books);
-
-// Get my Books indexes
-export const getIndexesAll = async () => {
-  const indexes = {};
-  try {
-    const books = await getAll();
-    books.forEach((b) => { indexes[b.id] = b.shelf; });
-  } catch (e) {
-    throw (e.message);
-  }
-  return indexes;
-};
